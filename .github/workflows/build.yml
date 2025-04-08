@@ -29,3 +29,5 @@ jobs:
 
       - name: Run tests
         run: poetry run pytest
+        env:
+          DJANGO_SETTINGS_MODULE: bookstore.settings
