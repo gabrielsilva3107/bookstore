@@ -19,15 +19,10 @@ jobs:
         with:
           python-version: ${{ matrix.python_version }}
 
-      - name: Install Poetry 2.1.1
+      - name: Upgrade pip and install Poetry
         run: |
-          curl -sSL https://install.python-poetry.org | python3 - --version 2.1.1
-        env:
-          POETRY_HOME: /home/runner/.poetry
-          POETRY_VIRTUALENVS_CREATE: "false"
-
-      - name: Add Poetry to PATH
-        run: echo "/home/runner/.poetry/bin" >> $GITHUB_PATH
+          python -m pip install --upgrade pip
+          python -m pip install poetry==1.1.4
 
       - name: Install dependencies
         run: poetry install
