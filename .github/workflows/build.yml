@@ -27,10 +27,10 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Run tests
+      - name: Collect static files and apply migrations
         run: |
           poetry run python manage.py collectstatic --noinput
           poetry run python manage.py migrate
-          poetry run pytest
-        env:
-          DJANGO_SETTINGS_MODULE: bookstore.settings
+
+      - name: Run tests
+        run: poetry run pytest --ds=bookstore.settings
