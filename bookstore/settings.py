@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     "testserver",
     "127.0.0.1",
     "localhost",
+    "gabrielsilva3107.pythonanywhere.com",
 ]
 
 
